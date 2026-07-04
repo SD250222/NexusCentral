@@ -1,0 +1,120 @@
+.fullPage{
+    width: auto;
+    overflow-x: hidden;
+}
+.menuSection{
+    background-color: rgb(249, 249, 249);
+    height: 100vh;
+    padding: 0px;
+    width: 240px;
+    transition: width 0.3s ease;
+    position: relative;
+    .menuToggle{
+        position: absolute;
+        right: -18px;
+        top: 20px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 0 6px rgba(0,0,0,0.12);
+        cursor: pointer;
+        z-index: 5;
+    }
+    &.collapsed{
+        width: 70px;
+        min-width: 70px;
+        .menuBlock{
+            .UserInfoBlock{
+                .profileInfo{
+                    display: none;
+                }
+            }
+            .menus{
+                padding: 10px 5px;
+                .menuItem{
+                    justify-content: center;
+                    .menuLabel{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .menuBlock{
+        
+            .menus{
+                width: 100%;
+                padding: 10px 20px;
+                .menuItem{
+                    padding: 8px 5px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+                    .fa{
+                        font-size: 18px;
+                    }
+                    .menuLabel{
+                        white-space: nowrap;
+                    }
+                }
+                .selected{
+                    border-radius: 10px;
+                    color: rgb(30, 105, 209);
+                    background-color: rgb(198, 198, 198);
+                }
+            }
+        .UserInfoBlock{
+            width: 100%;
+            display: flex;  
+            flex-wrap: wrap;
+                padding-left: 5px;
+            .profile{
+                padding: 10px;
+                width: 60px;
+                p{
+                    width: 75%;
+                }
+                
+            }
+            .profileInfo{
+                width: 145px;
+                padding-top: 15px;
+                p{
+                    margin: 0;
+                    line-height: 1.15;
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+                .lastLogon{
+                    display: block;
+                    color: gray;
+                    font-weight: 100;
+                    font-style: italic;
+                    margin-top: 2px;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+.headerSection{
+    background-color: rgb(249, 249, 249);
+    width: -webkit-fill-available;
+    height: 50px;
+    padding: 0px;
+}
+.fullcontent{
+    width: -webkit-fill-available;
+    padding:0px;
+}
+.contentSection{
+    background-color: rgb(244, 244, 244);
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0px 20px;
+}

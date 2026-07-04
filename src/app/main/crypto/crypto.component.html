@@ -1,0 +1,55 @@
+<div class="col-md-12 row topPerfomanceCoin" *ngIf="loadChart">
+    <div class=" col-md-3 coinBlock" *ngFor="let coin of topFourCoin">
+        <div class="col-md-12 row coinInfo">
+            <div class="col-md-4 coinImg">
+                <img [src]="coin.image" width="40px" height="40px">
+            </div>
+            <div class="col-md-8 coinDetails">
+                <div class="coinName">{{coin.name}}&nbsp;({{coin.symbol}})</div>
+                <div class="coinPrice">${{coin.current_price}} ({{coin.price_change_percentage_24h | number:'1.2-2'}}%)</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-3 row coinList">
+        <div class="col-md-12 heading2">
+            <label>Top 25 Perfoming Coins</label>
+        </div>
+        <div class="col-md-12 coins" *ngIf="C_Coins">
+        <div class="col-md-12 coinItem" *ngFor="let coin of C_Coins">
+            <div class="col-md-2" (click)="getCoinHistory(coin.name)">
+                <img class="coinImg" [src]="coin.image">
+            </div>
+            <div class="col-md-7 C_coinInfo" (click)="getCoinHistory(coin.name)">
+                <div>{{coin.name}}&nbsp;({{coin.symbol}})</div>
+            </div>
+            <div class="col-md-3" (click)="getCoinHistory(coin.name)">
+                <div class="coinPercentage" [ngClass]="{'positive': coin.price_change_percentage_24h > 0, 'negative': coin.price_change_percentage_24h < 0}">
+                    {{coin.price_change_percentage_24h | number:'1.2-2'}}%
+                </div>
+            </div>                
+        </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-8 row coinList">
+        <div class="col-md-12 heading2">
+            <label>Exchange rate in last one year</label>
+        </div>
+        <div class="chartArea" *ngIf="loadChart">
+            <div class="loading" *ngIf="!loadcoinHistory">
+        <img src="../../../assets/cryptoLoading.gif" width="160px" height="120px">
+    </div>
+            <div class="chart" *ngIf="loadcoinHistory" [chart]="chart"></div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!loadChart">
+    <div class="loading">
+        <img src="../../../assets/cryptoLoading.gif" width="800px" height="600px">
+    </div>
+</div>  

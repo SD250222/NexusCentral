@@ -1,0 +1,80 @@
+<div class="col-md-12 row pageContent" *ngIf="!showLoading">
+    <div class="col-md-9  row">
+        <div class="block row">
+        <div class="imgBlock" *ngIf="selectedNews.urlToImage!=null">
+            <img [src]="selectedNews.urlToImage" class="image">
+        </div>
+        <div class="imgBlock" *ngIf="selectedNews.urlToImage==null">
+            <img src="https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg" class="image">
+        </div>
+        
+        <div class="content">
+            <label class="title">{{selectedNews.title}}</label><br>
+            <p>{{selectedNews.description}}</p>
+            <div class="author">
+                <div>
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.z2F78QVOUPcyHRhXTYGSyAHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+                </div>
+                <div class="authorInfo">
+                    <label class="authorName" *ngIf='selectedNews.author!=""'>{{selectedNews.author}}</label>
+                    <label *ngIf='selectedNews.author==""'>Unknown</label><br>
+                    <label>{{selectedNews.publishedAt | date:'dd/MM/yyyy hh:MM a'}}</label>
+                </div>
+                <div class="pagenation">
+                    <label (click)="perviousNews()"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Pervious</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label (click)="nextNews()">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></label>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>&nbsp;
+    <div class="col-md-3 weatherInfo" style="padding: 0px;" *ngIf="weatherReport">
+        <div class="block">
+            <label>{{weatherReport.name}}</label>
+            <div>
+                &nbsp;({{weatherReport.sys.country}})
+            </div>
+            <div class="weather_report">
+                <img class="weatherIcon" [src]="'https://openweathermap.org/img/wn/' + weatherReport.weather[0].icon + '.png'" [alt]="weatherReport.weather[0].description">
+                <label class="temp">{{weatherReport.main.temp - 273.15 | number:'1.0-0'}}</label><sup>&deg;C</sup>
+                <br>
+                <label>({{weatherReport.weather[0].description}})</label>
+            </div>
+            <div class="otherWeatherInfo">
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/9066/9066929.png" width="20"> &nbsp; <label>{{weatherReport.main.temp_max - 273.15 | number:'1.0-0'}} <sup>&deg;C</sup></label></div>
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/7963/7963787.png" width="15"> &nbsp; <label>{{weatherReport.wind.speed * 3.6 | number:'1.0-0'}} Km/Hr</label></div>
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/3920/3920688.png" width="20"> &nbsp; <label>{{sunriseTime}}</label></div>            
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/5118/5118028.png" width="18"> &nbsp; <label>{{weatherReport.main.temp_min - 273.15 | number:'1.0-0'}} <sup>&deg;C</sup></label></div>
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/8923/8923689.png" width="15"> &nbsp; <label>{{weatherReport.main.humidity}}%</label></div>
+                <div class="OWIB"><img src="https://cdn-icons-png.flaticon.com/128/3920/3920799.png" width="20"> &nbsp; <label>{{sunsetTime}}</label></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 row rowBlocks" *ngIf="showSources">
+        <!-- <div class="block publishers publishers1">{{sources[0].name}}</div> -->
+        <div class="block publishers" *ngFor="let data of sources">
+            <img [src]="data.logo" width="19" height="19">&nbsp;
+            {{data.name}}
+        </div>
+        
+    </div>
+    <div class="col-md-10 removeinitialSpace">
+        <div class="block">
+            <img src="https://moussyusa.com/wp-content/uploads/2020/04/Advertising-Banner-Template-Sample.jpg" class="ad_Img">
+        </div>
+    </div>
+    <div class="col-md-2" style="padding: 0px;">
+        <div class="block dev_content">
+            <label class="DeveloperInfo title">Developer</label>
+            <img class="profileImg" src="https://portfolio-psi-bice-48.vercel.app/profile.jpg">
+            <label class="DeveloperInfo name">Shankar Damodaran</label>
+            <label class="DeveloperInfo role">Front-End Developer</label>
+            <a href="https://portfolio-psi-bice-48.vercel.app/" target="_blank" class="DeveloperInfo Visit">Visit Portfolio <i class="fa fa-external-link" aria-hidden="true"></i></a>
+            <!-- <label class="DeveloperInfo">India</label> -->
+            <!-- <label class="DeveloperInfo Visit">Visit Portfolio <i class="fa fa-external-link" aria-hidden="true"></i></label> -->
+        </div>
+    </div>
+</div>
+<div class="pageLoading" *ngIf="showLoading">
+    <img src="https://cdn.dribbble.com/userupload/24031440/file/original-09559e5c3ffd3116a53cc071716e4d88.gif">
+</div>

@@ -1,0 +1,72 @@
+<div class="page">
+    <div class="col-md-9 searchContentList">
+        <div class="headerBlock row">
+            <div class="col-md-2 Counter">
+                <label class="count">{{totalResult}}</label><br>
+                <label class="news">News</label>
+            </div>
+            <div class=" col-md-10 titles">
+                <div class="heading1">{{TitleName}} Sports News</div>
+                <div class="heading2">Reports are still coming in, and the situation is evolving; we will update this story as more confirmed information becomes available.</div>
+            </div>
+        </div>
+        <div class="results">
+            <!-- Search Result: -->
+            <div class="col-md-4 newsBlock" *ngFor="let news of searchResult">
+
+                <div class="">
+                    <div class="col-md-12 img">
+                        <div class="newsImg" *ngIf="news.urlToImage!=null">
+                            <img [src]="news.urlToImage" class="newsImage">
+                        </div>
+                        <div class="newsImg" *ngIf="news.urlToImage==null">
+                            <img src="https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg"
+                            ()    
+                            class="image">
+                        </div>
+                        <div class="newsContent">   
+                            <div class="newsTitle">{{news.title}}</div>
+                            <div class="newsAuthor">
+                                <label>{{news.author}} ({{news.source.name}})</label><br>
+                                <!-- <label>{{news.publishedAt | date:'dd/MM/yyyy hh:MM a'}}</label> -->
+                            </div>
+                            <div class="newsDescription">
+                                <p>{{news.description}}</p>
+                            </div>
+                            <div>
+                                <a [href]="news.url" target="_blank">Read More...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 fifaGames">
+        <div class="heading2">
+            <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-FIFA-World-Cup-2026-logo-white-PNG-large-size.png" width="30px" /> &nbsp;
+            <label>FIFA World Cup 2026</label>
+        </div>
+        <div class="games" *ngFor="let game of fifaGames">
+            <div class="game">
+                <div class="leagueRound">
+                    {{game.league.round}}
+                    <label>upcomming</label>
+                </div>
+                <div class="team1">
+                    <img [src]="game.teams.home.logo" width="20px" height="20px"><br>
+                    {{game.teams.home.name}}<br>
+                    <img *ngIf="game.teams.home.winner==true" src="assets/cup1.png" width="15px" height="15px">
+                </div>
+                <div class="score">{{game.goals.home}} - {{game.goals.away}}</div>
+                <div class="team2">
+                    <img [src]="game.teams.away.logo" width="20px" height="20px"><br>
+                    {{game.teams.away.name}}<br>
+                    <img *ngIf="game.teams.away.winner==true" src="assets/cup1.png" width="15px" height="15px">
+                </div>
+                <div class="referee">👨‍⚖️ {{game.fixture.referee}}</div>
+            </div>
+        </div>
+        </div>
+</div>

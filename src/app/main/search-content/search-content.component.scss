@@ -1,0 +1,160 @@
+.page {
+    // width: 90%;
+    // padding: 30px;
+    
+    .searchContentList {
+        .headerBlock {
+            background-color: #2e3192;
+            color: white;
+            margin-top: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 100%;
+            margin-left: 0px;
+
+            .Counter {
+                width: 100px;
+                text-align: center;
+                border-right: 1px solid rgb(255, 255, 255);
+
+                .count {
+                    font-size: 40px;
+                    margin: 0px;
+                    height: 25px;
+                }
+
+                .news {
+                    font-size: 18px;
+                }
+            }
+
+            .titles {
+                width: max-content;
+
+                .heading1 {
+                    font-size: 35px;
+                    font-weight: bold;
+                    width: 100%;
+                    // border-bottom: 1px solid rgb(255, 255, 255);
+                }
+
+                .heading2 {
+                    font-size: 15px;
+                    font-style: italic;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+            }
+        }
+
+        // .results {
+        //     background-color: white;
+        //     padding: 0px;
+        //     padding: 10px;
+        //     padding-bottom: 0px;
+        //     height: 70vh;
+        //     overflow-x: hidden;
+
+        //     .block {
+        //         background-color: white;
+        //         padding: 10px;
+        //         border-radius: 10px;
+        //         display: flex;
+        //         flex-wrap: wrap;
+
+        //         .imgBlock {
+        //             width: 150px;
+        //             padding: 0px;
+
+        //             .image {
+        //                 width: 150px;
+        //                 height: 130px;
+        //                 border-radius: 10px;
+        //                 padding: 0px;
+        //             }
+        //         }
+
+        //         .content {
+        //             width: 81%;
+
+        //             .title {
+        //                 font-size: 18px;
+        //                 font-weight: bold;
+        //             }
+
+        //             p {
+        //                 height: 60px;
+        //                 margin-bottom: 0px;
+        //                 font-size: 12px;
+        //             }
+
+        //             .author {
+        //                 width: 100%;
+        //                 display: flex;
+        //                 flex-wrap: wrap;
+        //                 font-size: 12px;
+        //                 // font-weight: bold;
+        //                 img {
+        //                     width: 30px;
+        //                 }
+
+        //                 .authorInfo {
+        //                     width: 60% !important;
+        //                 }
+
+        //                 .authorInfo label {
+        //                     height: 8px;
+        //                     padding-left: 10px;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+
+    .newsBlock{
+        // border:1px solid rgb(29, 29, 29);
+        border-radius: 10px;
+        padding: 5px;
+        .newsImg{
+            // width: 90%;
+            .newsImage,.image{
+                width:100%;
+            background-color: rgb(234, 234, 234);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            }
+        }
+        .newsContent{
+            padding: 10px;
+            background-color: rgb(234, 234, 234);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            .newsTitle{
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .newsAuthor{
+                font-size: 10px;
+                font-style: italic;
+            }
+            .newsDescription{
+                font-size: 10px;
+            }
+            a{
+                font-size: 10px;
+                text-decoration: none;
+                color: #2e3192;
+            }
+        }
+    }
+}
+.results{
+    width: 100%;    
+    display: flex;
+    flex-wrap: wrap;
+}
+// .newsList{
+//     width: 100%;
+//     display: flex;
+//     flex-wrap: wrap;
+// }

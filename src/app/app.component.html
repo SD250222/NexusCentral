@@ -1,0 +1,55 @@
+<!-- <router-outlet> </router-outlet> -->
+ <div class="col-md-12 row fullPage">
+    <div class="menuSection" [class.collapsed]="menuCollapsed">
+        <div class="menuToggle" (click)="toggleMenu()">
+            <i class="fa" [ngClass]="menuCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+        </div>
+        <div class="menuBlock">
+            <div class="UserInfoBlock">
+                <div class="profile">
+                    <img src="https://www.shareicon.net/data/512x512/2016/09/15/829459_man_512x512.png" width="40" height="40">
+                    
+                </div>
+                <div class="profileInfo">
+                    <p>
+                        Peter Parker<br/>
+                        <span class="lastLogon">(last seen: Yesterday, 10:00 AM)</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="menus">
+                <div class="menuItem" [class.selected]="selectedMenu === 'home'" (click)="navigate('home')">
+                    <i class="fa fa-home" aria-hidden="true"></i><span class="menuLabel"> Home</span>
+                </div>
+                <div class="menuItem" [class.selected]="selectedMenu === 'International'" (click)="navigate('International')">
+                    <i class="fa fa-globe" aria-hidden="true"></i><span class="menuLabel"> International</span>
+                </div>
+                <div class="menuItem" [class.selected]="selectedMenu === 'Sports'" (click)="navigate('Sports')">
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i><span class="menuLabel"> Sports</span>
+                </div>
+                <div class="menuItem" [class.selected]="selectedMenu === 'Science'" (click)="navigate('Science')">
+                    <i class="fa fa-flask" aria-hidden="true"></i><span class="menuLabel"> Science</span>
+                </div>
+                <div class="menuItem" [class.selected]="selectedMenu === 'Economy'" (click)="navigate('Economy')">
+                    <i class="fa fa-money" aria-hidden="true"></i><span class="menuLabel"> Economy</span>
+                </div>
+                <div class="menuItem" [class.selected]="selectedMenu === 'Movies'" (click)="navigate('Movies')">
+                    <i class="fa fa-video-camera" aria-hidden="true"></i><span class="menuLabel"> Movies</span>
+                </div>                
+                <div class="menuItem" [class.selected]="selectedMenu === 'Weather'" (click)="navigate('Weather')">
+                    <i class="fa fa-cloud" aria-hidden="true"></i><span class="menuLabel"> Weather</span>
+                </div>                  
+                <div class="menuItem" [class.selected]="selectedMenu === 'Crypto'" (click)="navigate('Crypto')">
+                    <i class="fa fa-btc" aria-hidden="true"></i><span class="menuLabel"> Crypto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fullcontent" [style.width]="menuCollapsed ? 'calc(100% - 85px)' : 'calc(100% - 250px)'">
+        <div class="contentSection">
+            <router-outlet> </router-outlet>
+        </div>
+    </div>
+</div>
+ 
