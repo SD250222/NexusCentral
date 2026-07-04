@@ -1,1 +1,51 @@
-<p>movie works!</p>
+<div class="col-md-12 fullpage">   
+    <div class="col-md-12 headerSearchArea">
+        <img src="assets/camera.png" class="headerSearchIcon" width="130px" />&nbsp;&nbsp;
+        <label class="headerSearchText">MovieLens</label>
+    </div>
+    <div class="col-md-12">
+        <input type="text" class="searchText" placeholder="Search for movies..." [(ngModel)]="searchText" />&nbsp;&nbsp;
+        <button class="searchButton" (click)="Search()">Search</button>
+    </div>
+
+
+    <div class="moviesList" *ngIf="!showMovieDetails && !showLoading">
+    <div *ngFor="let movie of movieList.Search" class="col-md-3 movieListArea">
+        <div class="movieCard" (click)="getMovieDetails(movie.Title,movie.Year,movie.Type)">
+            <img [src]="movie.Poster" class="movieImage" />
+        </div>
+        <div class="movieDetails" (click)="getMovieDetails(movie.Title,movie.Year,movie.Type)">
+            <label class="movieTitle">{{movie.Title}}</label><br/>
+            <label class="movieYear">({{movie.Type}} released on {{movie.Year}})</label><br/>
+        </div>
+    </div>
+    
+    
+    </div>
+
+
+    <div class="col-md-12 movieDeatilBlock" *ngIf="showMovieDetails && !showLoading">
+        <div class="movieTitleBlock">
+            <div class="moviePoster">
+                <img [src]="movieDeatail.Poster" class="moviePosterImage" />
+            </div>  
+            <div class="movieDetailsBlock">
+                <label class="SelectedmovieTitle">{{movieDeatail.Title}}</label><br/>
+                <label class="movieInfo">Released On: {{movieDeatail.Released}}</label><br/>
+                <label class="movieInfo">Length: {{movieDeatail.Runtime}}</label><br/>
+                <label class="movieInfo">Director: {{movieDeatail.Director}}</label><br/>
+                <label class="movieInfo">Actors: {{movieDeatail.Actors}}</label><br/>
+                <label class="movieInfo">Awards: {{movieDeatail.Awards}}</label><br/>
+                <label class="movieInfo">BoxOffice: {{movieDeatail.BoxOffice}}</label><br/>
+                <p class="movieInfo">Story: {{movieDeatail.Plot}}</p>
+            <div class="closeSection">
+                <label class="movieInfo" (click)="showMovieDetails = false">Close</label>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 loadingBlock" *ngIf="showLoading">
+    <img src="assets/loading1.gif" class="loadingImage" width="300px" />
+</div>

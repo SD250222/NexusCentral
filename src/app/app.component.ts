@@ -19,7 +19,7 @@ export class AppComponent {
   navigate(searchText: string){
     this.selectedMenu = searchText;
 
-    if(searchText!='home' && searchText!='Weather'  && searchText!='Crypto' && searchText!='Sports'){
+    if(searchText!='home' && searchText!='Weather'  && searchText!='Crypto' && searchText!='Sports' && searchText!='Movies'){
       this.Router.navigateByUrl('/search/'+searchText);
     }else if(searchText=='Weather'){
       this.Router.navigateByUrl('/live_weather');
@@ -27,6 +27,8 @@ export class AppComponent {
       this.Router.navigateByUrl('/crypto');
     }else if(searchText=='Sports'){
       this.Router.navigateByUrl('/sports');
+    } else if(searchText=='Movies'){
+      this.Router.navigateByUrl('/movies');
     }else{
       this.Router.navigateByUrl("homepage");
     }

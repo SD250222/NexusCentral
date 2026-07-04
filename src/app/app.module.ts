@@ -8,6 +8,7 @@ import { appService } from './main/service.service';
 import { WeatherReportComponent } from './main/weather-report/weather-report.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { CryptoComponent } from './main/crypto/crypto.component';
 import { ChartModule } from 'angular-highcharts';
@@ -28,6 +29,7 @@ import { MovieComponent } from './main/movie/movie.component';
     BrowserModule,
     HttpClientModule,
     CommonModule,
+    FormsModule,
     AppRoutingModule,
     ChartModule 
   ],

@@ -42476,4 +42476,12 @@ export class appService {
     //   }
     // })
   }
+
+  getMovieOverallData(name: string):Observable<any>{
+    return this.http.get("https://omdbapi.com/?apikey=4c456083&s=" + name + "&page=1")
+  }
+
+  getMovieData(name: string,year: string):Observable<any>{
+    return this.http.get("https://omdbapi.com/?apikey=4c456083&t=" + name + "&y=" + year + "&plot=full")
+  } 
 }
