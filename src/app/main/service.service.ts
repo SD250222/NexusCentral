@@ -42447,13 +42447,13 @@ export class appService {
     ]
 }
   getHeadlines(){
-    return this.http.get("https://newsapi.org/v2/top-headlines?country=US&category=business&apiKey="+this.NEWS_API_Key)
+    return this.http.get("http://newsapi.org/v2/top-headlines?country=US&category=business&apiKey="+this.NEWS_API_Key)
   }
   getSources(){
-    return this.http.get("https://newsapi.org/v2/top-headlines/sources?apiKey="+this.NEWS_API_Key)
+    return this.http.get("http://newsapi.org/v2/top-headlines/sources?apiKey="+this.NEWS_API_Key)
   }
   getNewsByKeyword(keyword:any){
-    return this.http.get("https://newsapi.org/v2/everything?q="+keyword+"&from=2026-06-09&sortBy=publishedAt&language=en&apiKey="+this.NEWS_API_Key)
+    return this.http.get("http://newsapi.org/v2/everything?q="+keyword+"&from=2026-06-09&sortBy=publishedAt&language=en&apiKey="+this.NEWS_API_Key)
   }
   getCurrentWeather(){
     return this.http.get("https://api.openweathermap.org/data/2.5/weather?lat=12.005&lon=79.80&appid="+this.weather_API_key)
