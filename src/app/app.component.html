@@ -1,6 +1,6 @@
 <!-- <router-outlet> </router-outlet> -->
  <div class="col-md-12 row fullPage">
-    <div class="menuSection" [class.collapsed]="menuCollapsed">
+    <div class="menuSection" [ngStyle]="menuStyle" [class.collapsed]="menuCollapsed">
         <div class="menuToggle" (click)="toggleMenu()">
             <i class="fa" [ngClass]="menuCollapsed ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
         </div>
@@ -10,7 +10,7 @@
                     <img src="assets/loading.gif" width="40" height="40">
                     
                 </div>
-                <div class="profileInfo">
+                <div class="profileInfo" [ngStyle]="tileStyle">
                     <label class="nexus">Nexus</label><label class="central">Central</label>
                 </div>
             </div>
@@ -44,9 +44,25 @@
         </div>
     </div>
     <div class="fullcontent" [style.width]="menuCollapsed ? 'calc(100% - 85px)' : 'calc(100% - 250px)'">
-        <div class="contentSection">
+        
+        <div class="contentSection" [style.background-color]="isDarkTheme ? 'rgb(28, 28, 28)' : 'rgb(244, 244, 244)'">
+            <div class="themeSection" [style.background-color]="isDarkTheme ? 'rgb(28, 28, 28)' : 'rgb(244, 244, 244)'">
+                <label class="themeToggle">
+                    <!-- <span class="themeLabel">Theme</span> -->
+                    <input type="checkbox" [checked]="isDarkTheme" (change)="toggleTheme()">
+                    <span class="slider">
+                        <i class="fa fa-sun-o icon sun"></i>
+                        <i class="fa fa-moon-o icon moon"></i>
+                    </span>
+                </label>
+            </div>
             <router-outlet> </router-outlet>
+
+            
         </div>
+        <!-- <div class="footer" [ngStyle]="footerStyle">
+                <label class="footerText">© 2024 Nexus Central. All rights reserved.</label>
+            </div> -->
     </div>
 </div>
  

@@ -20,7 +20,7 @@
     }
 
     .block {
-        background-color: white;
+        // background-color: white;
         padding: 10px;
         border-radius: 10px;
         // width: 100%;
@@ -68,7 +68,7 @@
         }
 
         .content {
-            width: 73%;
+            width: 72%;
 
             .title {
                 font-size: 15px;
@@ -89,6 +89,7 @@
                 img {
                     width: 30px;
                     margin-top: 10px;
+                    border-radius: 50%;
                 }
 
                 .authorInfo {
@@ -200,7 +201,7 @@
 
         button{
             width: 20%;
-            background-color: #2e3192;
+            background-color: #c10f0f;
             color: white;
             border-radius: 5px;
             border: none;

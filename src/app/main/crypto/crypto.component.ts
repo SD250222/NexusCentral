@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { appService } from '../service.service';
 import { Chart } from 'angular-highcharts';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-crypto',
@@ -9,7 +10,12 @@ import { Chart } from 'angular-highcharts';
 })
 export class CryptoComponent implements OnInit {
 
-   constructor(private service:appService) { }
+  blockStyle:any;
+   constructor(private service:appService, private themeService: ThemeService) {
+       this.themeService.theme$.subscribe((isDarkTheme: boolean) => {
+         this.getThemeSetUp(isDarkTheme);
+       });
+    }
 
  chart:any = new Chart({
     chart: {
@@ -213,4 +219,22 @@ export class CryptoComponent implements OnInit {
         this.loadcoinHistory=true;
   })
 }
+
+getThemeSetUp(isDarkTheme: boolean = this.themeService.getTheme()){
+    if (isDarkTheme) {
+      this.blockStyle ={
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white',
+        'border': '1px solid rgb(48, 48, 48)'
+      }
+      
+    } else {
+      this.blockStyle ={
+        'background-color': 'rgb(255, 255, 255)',
+        'color': 'black',
+        'border': '1px solid rgb(205, 205, 205)'
+      }
+      
+    }
+  }
 }

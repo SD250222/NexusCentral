@@ -1,4 +1,4 @@
-<div class="col-md-12 fullpage">   
+<div class="col-md-12 fullpage page">   
     <div class="col-md-12 headerSearchArea">
         <img src="assets/camera.png" class="headerSearchIcon" width="130px" />&nbsp;&nbsp;
         <label class="headerSearchText">MovieLens</label>
@@ -31,13 +31,13 @@
             </div>  
             <div class="movieDetailsBlock">
                 <label class="SelectedmovieTitle">{{movieDeatail.Title}}</label><br/>
-                <label class="movieInfo">Released On: {{movieDeatail.Released}}</label><br/>
-                <label class="movieInfo">Length: {{movieDeatail.Runtime}}</label><br/>
-                <label class="movieInfo">Director: {{movieDeatail.Director}}</label><br/>
-                <label class="movieInfo">Actors: {{movieDeatail.Actors}}</label><br/>
-                <label class="movieInfo">Awards: {{movieDeatail.Awards}}</label><br/>
-                <label class="movieInfo">BoxOffice: {{movieDeatail.BoxOffice}}</label><br/>
-                <p class="movieInfo">Story: {{movieDeatail.Plot}}</p>
+                <label class="movieInfo" [ngStyle]="blockStyle">Released On: {{movieDeatail.Released}}</label><br/>
+                <label class="movieInfo" [ngStyle]="blockStyle">Length: {{movieDeatail.Runtime}}</label><br/>
+                <label class="movieInfo" [ngStyle]="blockStyle">Director: {{movieDeatail.Director}}</label><br/>
+                <label class="movieInfo" [ngStyle]="blockStyle">Actors: {{movieDeatail.Actors}}</label><br/>
+                <label class="movieInfo" [ngStyle]="blockStyle">Awards: {{movieDeatail.Awards}}</label><br/>
+                <label class="movieInfo" [ngStyle]="blockStyle">BoxOffice: {{movieDeatail.BoxOffice}}</label><br/>
+                <p class="movieInfo" [ngStyle]="blockStyle">Story: {{movieDeatail.Plot}}</p>
             <div class="closeSection">
                 <label class="movieInfo" (click)="showMovieDetails = false">Close</label>
             </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemeService } from './theme.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +11,51 @@ export class AppComponent {
   menuCollapsed = false;
   contentWidth="calc(100% - 250px)";
   selectedMenu: string = 'home';
-  constructor(private Router:Router){}
+  isDarkTheme = false;
+  menuStyle:any;
+  tileStyle:any;
+  footerStyle:any;
+  constructor(private Router:Router, private themeService: ThemeService){
+    this.isDarkTheme = this.themeService.getTheme();
+    this.applyThemeStyles(this.isDarkTheme);
+  }
 
   toggleMenu(): void {
     this.menuCollapsed = !this.menuCollapsed;
+  }
+
+  toggleTheme(): void { 
+    this.isDarkTheme = !this.isDarkTheme;
+    this.themeService.setTheme(this.isDarkTheme);
+    this.applyThemeStyles(this.isDarkTheme);
+  }
+
+  private applyThemeStyles(isDarkTheme: boolean): void {
+    if(isDarkTheme){
+      this.menuStyle = {
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white'
+      };
+      this.tileStyle = {
+        'color': 'rgb(226, 226, 226)',
+      };
+      this.footerStyle = {
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white'
+      };
+    }else{
+      this.menuStyle = {
+        'background-color': 'rgb(225, 225, 225)',
+        'color': 'black'
+      };
+      this.tileStyle = {
+        'background-color': 'rgb(225, 225, 225)',
+      };
+      this.footerStyle = {
+        'background-color': 'rgb(225, 225, 225)',
+        'color': 'black'
+      };
+    }
   }
 
   navigate(searchText: string){

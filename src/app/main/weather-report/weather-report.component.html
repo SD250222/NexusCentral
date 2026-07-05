@@ -1,4 +1,4 @@
-<div class="frame">
+<div class="frame page">
     <div class="weatherReportMap">
         <div class="heading2">
             <label><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE8SljkFmk5CL4iiswsT1zXyvLbu8bMwCpkw&s" width="30px" /> &nbsp;Live Weather Map</label>
@@ -12,7 +12,7 @@
         <div class="heading2">
             <label>Weather News</label>
         </div>
-        <div class="newsContent" *ngFor="let news of searchResult">
+        <div class="newsContent" [ngStyle]="blockStyle" *ngFor="let news of searchResult">
                 <div class="newsImg" *ngIf="news.image!=null">
                     <img [src]="news.image" class="newsImage" (error)="news.image='https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg'">
                     <div class="newsTitle">{{news.title}}</div>

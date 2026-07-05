@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { appService } from '../service.service';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-movie',
@@ -13,8 +14,24 @@ export class MovieComponent {
   showMovieDetails: boolean = false;
   movieDeatail:any;
   showLoading: boolean = false;
-  constructor(private service:appService) { }
+  blockStyle:any;
+  constructor(private service:appService,private themeService: ThemeService) {
+    this.themeService.theme$.subscribe((isDarkTheme: boolean) => {
+      this.getThemeSetUp(isDarkTheme);
+    });
+   }
 
+  getThemeSetUp(isDarkTheme: boolean = this.themeService.getTheme()){
+    if (isDarkTheme) {
+      this.blockStyle ={
+        'color': 'white',
+      }
+    } else {
+      this.blockStyle ={
+        'color': 'black',
+      }
+    }
+  }
   Search() {
     this.showLoading = true;
     this.service.getMovieOverallData(this.searchText)

@@ -1,7 +1,7 @@
-<div class="col-md-12 row topPerfomanceCoin" *ngIf="loadChart">
+<div class="col-md-12 row topPerfomanceCoin page" *ngIf="loadChart">
     <div class=" col-md-3 coinBlock" *ngFor="let coin of topFourCoin">
-        <div class="col-md-12 row coinInfo">
-            <div class="col-md-4 coinImg">
+        <div class="col-md-12 row coinInfo" [ngStyle]="blockStyle">
+            <div class="col-md-4 coinImg top4Coin">
                 <img [src]="coin.image" width="40px" height="40px">
             </div>
             <div class="col-md-8 coinDetails">
@@ -18,7 +18,7 @@
             <label>Top 25 Perfoming Coins</label>
         </div>
         <div class="col-md-12 coins" *ngIf="C_Coins">
-        <div class="col-md-12 coinItem" *ngFor="let coin of C_Coins">
+        <div class="col-md-12 coinItem" [ngStyle]="blockStyle" *ngFor="let coin of C_Coins">
             <div class="col-md-2" (click)="getCoinHistory(coin.name)">
                 <img class="coinImg" [src]="coin.image">
             </div>
@@ -49,7 +49,7 @@
 </div>
 
 <div *ngIf="!loadChart">
-    <div class="loading">
+    <div class="loading" [ngStyle]="blockStyle">
         <img src="../../../assets/cryptoLoading.gif" width="800px" height="600px">
     </div>
 </div>  

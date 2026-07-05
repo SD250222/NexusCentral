@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { appService } from '../service.service';
 import { ActivatedRoute } from '@angular/router';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-sports',
@@ -9,12 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SportsComponent implements AfterViewInit {
 
-  constructor(public service:appService,private router:ActivatedRoute){}
+  constructor(public service:appService,private router:ActivatedRoute,private themeService: ThemeService) { 
+      this.themeService.theme$.subscribe((isDarkTheme: boolean) => {
+        this.getThemeSetUp(isDarkTheme);
+      });
+  }
 
   searchResult:any;
   totalResult=0;
   TitleName:any;
   fifaGames:any;
+  blockStyle:any;
 ngAfterViewInit(){
     this.router.params.subscribe(params => {
       this.getSearchContentNews("Sports")
@@ -34,5 +40,20 @@ ngAfterViewInit(){
       this.fifaGames=res.response.filter((game:any)=>game.league.name=='World Cup');
       console.log("res",res)
     })
+  }
+
+
+  getThemeSetUp(isDarkTheme: boolean = this.themeService.getTheme()){
+    if (isDarkTheme) {
+      this.blockStyle ={
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white',
+        'border': '1px solid rgb(41, 41, 41)'
+      }
+    } else {
+      this.blockStyle ={
+        'color': 'black',
+      }
+    }
   }
 }

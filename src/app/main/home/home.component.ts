@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { appService } from '../service.service';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'home',
@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public Service: appService, public Router: Router) { }
+  constructor(public Service: appService, public Router: Router, private themeService: ThemeService) {
+    this.themeService.theme$.subscribe((isDarkTheme: boolean) => {
+      this.getThemeSetUp(isDarkTheme);
+    });
+   }
   selectedNews: any;
   headlines: any;
   showSources: boolean = false;
@@ -20,13 +24,14 @@ export class HomeComponent implements OnInit {
   sunsetTime: any;
   showLoading: boolean = true;
   searchKeyword:any="";
-
+  blockStyle:any;
   searchNews() {
     if (this.searchKeyword.trim() !== "") {
       this.Router.navigateByUrl('/search/'+this.searchKeyword);
     }
   }
   ngOnInit() {
+   
     this.Service.getHeadlines()
       .subscribe((res: any) => {
         this.headlines = res
@@ -84,6 +89,22 @@ export class HomeComponent implements OnInit {
       })
 
 
+  }
+
+  getThemeSetUp(isDarkTheme: boolean = this.themeService.getTheme()){
+    if (isDarkTheme) {
+      this.blockStyle ={
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white',
+        'border': '1px solid rgb(175, 175, 175)'
+      }
+    } else {
+      this.blockStyle ={
+        'background-color': 'rgb(255, 255, 255)',
+        'color': 'black',
+        'border': '1px solid rgb(205, 205, 205)'
+      }
+    }
   }
 
   newsIndex = 0;

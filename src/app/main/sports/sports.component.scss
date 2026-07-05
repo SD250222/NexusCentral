@@ -6,9 +6,9 @@
     flex-wrap: wrap;
     .searchContentList {
         .headerBlock {
-            background-color: #2e3192;
+            background-color: #c10f0f;
             color: white;
-            margin-top: 20px;
+            margin-top: 10px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             width: 100%;
@@ -128,7 +128,7 @@
         }
         .newsContent{
             padding: 10px;
-            background-color: rgb(234, 234, 234);
+            // background-color: rgb(234, 234, 234);
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
             .newsTitle{
@@ -145,7 +145,7 @@
             a{
                 font-size: 10px;
                 text-decoration: none;
-                color: #2e3192;
+                color: #c10f0f;
             }
         }
     }
@@ -162,9 +162,9 @@
 // }
 .fifaGames{
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 10px;
     .heading2{
-        background-color: #2e3192;
+        background-color: #c10f0f;
         color: white;
         font-size: 14px;
         font-weight: bold;
@@ -185,7 +185,7 @@
             flex-wrap: wrap;
             padding: 5px;
             margin-bottom: 5px;
-            background-color: rgb(58, 133, 219);
+            background-color: rgb(186, 23, 23);
             border-radius: 10px;
             .leagueRound{
                 width: 100%;
@@ -199,12 +199,14 @@
                 width: 40%;
                 text-align: center;
                 font-size: 12px;
+                color: white;
                 font-weight: bold;
             }
             .team2{
                 width: 40%;
                 text-align: center;
                 font-size: 12px;
+                color: white;
                 font-weight: bold;
             }
             .score{

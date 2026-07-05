@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { appService } from '../service.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ThemeService } from 'src/app/theme.service';
 @Component({
   selector: 'app-search-content', 
   templateUrl: './search-content.component.html',
@@ -9,7 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchContentComponent implements AfterViewInit {
 
-  constructor(public service:appService,private router:ActivatedRoute){}
+
+  blockStyle:any;
+  constructor(public service:appService,private router:ActivatedRoute,private themeService: ThemeService) { 
+        this.themeService.theme$.subscribe((isDarkTheme: boolean) => {
+          this.getThemeSetUp(isDarkTheme);
+        });
+  }
 
   searchResult:any;
   totalResult=0;
@@ -29,5 +36,19 @@ export class SearchContentComponent implements AfterViewInit {
       this.searchResult=res.news;
       console.log("res",res)
     })
+  }
+
+  getThemeSetUp(isDarkTheme: boolean = this.themeService.getTheme()){
+    if (isDarkTheme) {
+      this.blockStyle ={
+        'background-color': 'rgb(45, 45, 45)',
+        'color': 'white',
+        'border': '1px solid rgb(41, 41, 41)'
+      }
+    } else {
+      this.blockStyle ={
+        'color': 'black',
+      }
+    }
   }
 }

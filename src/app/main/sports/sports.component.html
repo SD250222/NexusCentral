@@ -24,7 +24,7 @@
                             ()    
                             class="image">
                         </div>
-                        <div class="newsContent">   
+                        <div class="newsContent" [ngStyle]="blockStyle">   
                             <div class="newsTitle">{{news.title}}</div>
                             <div class="newsAuthor">
                                 <label>{{news.author}} </label><br>
@@ -49,7 +49,7 @@
             <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-FIFA-World-Cup-2026-logo-white-PNG-large-size.png" width="30px" /> &nbsp;
             <label>FIFA World Cup 2026</label>
         </div>
-        <div class="games" *ngFor="let game of fifaGames">
+        <div class="games" [ngStyle]="blockStyle" *ngFor="let game of fifaGames">
             <div class="game">
                 <div class="leagueRound">
                     {{game.league.round}}

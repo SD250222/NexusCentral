@@ -1,4 +1,4 @@
-<div class="col-md-12 row pageContent" *ngIf="!showLoading">
+<div class="col-md-12 row pageContent page" *ngIf="!showLoading">
     <div class="col-md-12 searchArea">
         <div class="searchBlock">
             <input type="text" placeholder="Search News..." [(ngModel)]="searchKeyword" (keyup.enter)="searchNews()">
@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="col-md-9  row">
-        <div class="block row">
+        <div class="block" [ngStyle]="blockStyle">
         <div class="imgBlock" *ngIf="selectedNews.urlToImage!=null">
             <img [src]="selectedNews.urlToImage" class="image">
         </div>
@@ -35,7 +35,7 @@
         </div>
     </div>&nbsp;
     <div class="col-md-3 weatherInfo" style="padding: 0px;" *ngIf="weatherReport">
-        <div class="block">
+        <div class="block" [ngStyle]="blockStyle">
             <label>{{weatherReport.name}}</label>
             <div>
                 &nbsp;({{weatherReport.sys.country}})
@@ -64,12 +64,12 @@
         
     </div> -->
     <div class="col-md-10 removeinitialSpace">
-        <div class="block">
+        <div class="block" [ngStyle]="blockStyle">
             <img src="https://moussyusa.com/wp-content/uploads/2020/04/Advertising-Banner-Template-Sample.jpg" class="ad_Img">
         </div>
     </div>
     <div class="col-md-2" style="padding: 0px;">
-        <div class="block dev_content">
+        <div class="block dev_content" [ngStyle]="blockStyle">
             <label class="DeveloperInfo title">Developer</label>
             <img class="profileImg" src="https://portfolio-psi-bice-48.vercel.app/profile.jpg">
             <label class="DeveloperInfo name">Shankar Damodaran</label>
