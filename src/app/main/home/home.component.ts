@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { appService } from '../service.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public Service: appService) { }
+  constructor(public Service: appService, public Router: Router) { }
   selectedNews: any;
   headlines: any;
   showSources: boolean = false;
@@ -18,11 +19,18 @@ export class HomeComponent implements OnInit {
   sunriseTime: any;
   sunsetTime: any;
   showLoading: boolean = true;
+  searchKeyword:any="";
+
+  searchNews() {
+    if (this.searchKeyword.trim() !== "") {
+      this.Router.navigateByUrl('/search/'+this.searchKeyword);
+    }
+  }
   ngOnInit() {
     this.Service.getHeadlines()
       .subscribe((res: any) => {
         this.headlines = res
-        this.selectedNews = res.articles[0];
+        this.selectedNews = res.news[0];
         this.showLoading = false;
       })
       
@@ -81,19 +89,19 @@ export class HomeComponent implements OnInit {
   newsIndex = 0;
   perviousNews() {
     if (this.newsIndex == 0) {
-      this.newsIndex = this.headlines.articles.length - 1;
+      this.newsIndex = this.headlines.news.length - 1;
     } else {
       this.newsIndex = this.newsIndex - 1;
     }
-    this.selectedNews = this.headlines.articles[this.newsIndex];
+    this.selectedNews = this.headlines.news[this.newsIndex];
   }
 
   nextNews() {
-    if (this.newsIndex == this.headlines.articles.length - 1) {
+    if (this.newsIndex == this.headlines.news.length - 1) {
       this.newsIndex = 0;
     } else {
       this.newsIndex = this.newsIndex + 1;
     }
-    this.selectedNews = this.headlines.articles[this.newsIndex];
+    this.selectedNews = this.headlines.news[this.newsIndex];
   }
 }

@@ -38,8 +38,8 @@ export class WeatherReportComponent {
     //     }]
     this.service.getNewsByKeyword("natural disaster")
     .subscribe((res:any)=>{
-      this.totalResult=res.articles.length;
-      this.searchResult=res.articles;
+      this.totalResult=res.news.length;
+      this.searchResult=res.news;
       console.log("res",res)
     })
   }

@@ -178,3 +178,33 @@
 .block{
     border: 2px solid lightgrey;
 }
+
+.searchArea{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .searchBlock{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+
+        input{
+            width: 80%;
+            padding: 5px;
+            margin-right: 5px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+        }
+
+        button{
+            width: 20%;
+            background-color: #2e3192;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

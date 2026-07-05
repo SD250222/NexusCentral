@@ -1,4 +1,10 @@
 <div class="col-md-12 row pageContent" *ngIf="!showLoading">
+    <div class="col-md-12 searchArea">
+        <div class="searchBlock">
+            <input type="text" placeholder="Search News..." [(ngModel)]="searchKeyword" (keyup.enter)="searchNews()">
+            <button (click)="searchNews()"><i class="fa fa-search" aria-hidden="true"></i>&nbsp; Search</button>
+        </div>
+    </div>
     <div class="col-md-9  row">
         <div class="block row">
         <div class="imgBlock" *ngIf="selectedNews.urlToImage!=null">
@@ -50,14 +56,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 row rowBlocks" *ngIf="showSources">
-        <!-- <div class="block publishers publishers1">{{sources[0].name}}</div> -->
+    <!-- <div class="col-md-12 row rowBlocks" *ngIf="showSources">
         <div class="block publishers" *ngFor="let data of sources">
             <img [src]="data.logo" width="19" height="19">&nbsp;
             {{data.name}}
         </div>
         
-    </div>
+    </div> -->
     <div class="col-md-10 removeinitialSpace">
         <div class="block">
             <img src="https://moussyusa.com/wp-content/uploads/2020/04/Advertising-Banner-Template-Sample.jpg" class="ad_Img">

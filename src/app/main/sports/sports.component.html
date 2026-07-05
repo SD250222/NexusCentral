@@ -7,7 +7,7 @@
             </div>
             <div class=" col-md-10 titles">
                 <div class="heading1">{{TitleName}} Sports News</div>
-                <div class="heading2">Reports are still coming in, and the situation is evolving; we will update this story as more confirmed information becomes available.</div>
+                <div class="heading2">Reports are still coming in, and the situation is evolving.</div>
             </div>
         </div>
         <div class="results">
@@ -16,10 +16,10 @@
 
                 <div class="">
                     <div class="col-md-12 img">
-                        <div class="newsImg" *ngIf="news.urlToImage!=null">
-                            <img [src]="news.urlToImage" class="newsImage">
+                        <div class="newsImg" *ngIf="news.image!=null">
+                            <img [src]="news.image" class="newsImage" (error)="news.image='https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg'">
                         </div>
-                        <div class="newsImg" *ngIf="news.urlToImage==null">
+                        <div class="newsImg" *ngIf="news.image==null">
                             <img src="https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg"
                             ()    
                             class="image">
@@ -27,7 +27,8 @@
                         <div class="newsContent">   
                             <div class="newsTitle">{{news.title}}</div>
                             <div class="newsAuthor">
-                                <label>{{news.author}} ({{news.source.name}})</label><br>
+                                <label>{{news.author}} </label><br>
+                                <!-- <label>{{news.published | date:'dd/MM/yyyy hh:MM a'}}</label> -->
                                 <!-- <label>{{news.publishedAt | date:'dd/MM/yyyy hh:MM a'}}</label> -->
                             </div>
                             <div class="newsDescription">

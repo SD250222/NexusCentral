@@ -12,6 +12,7 @@ export class appService {
   NEWS_API_Key:any="a45103fe694149c7b8c0c108df73a60b";
   weather_API_key:any="ba1908372ed366caef7266ae502256fe";
   football_API_key:any="78b1c86738a22df4e2ea57d3e765fd5e";
+  theCurrent_API_key:any="k4deqU32RqI4eKTh61RMIyAQ_xSCHEGwiEYvLW9wYMdekmXD"; 
   footballData:any={
     "get": "fixtures",
     "parameters": {
@@ -42447,13 +42448,15 @@ export class appService {
     ]
 }
   getHeadlines(){
-    return this.http.get("http://newsapi.org/v2/top-headlines?country=US&category=business&apiKey="+this.NEWS_API_Key)
+    return this.http.get("https://api.currentsapi.services/v1/latest-news?language=en&page_size=5&apiKey="+this.theCurrent_API_key)
+    // return this.http.get("https://newsapi.org/v2/top-headlines?country=US&category=business&apiKey="+this.NEWS_API_Key)
   }
   getSources(){
-    return this.http.get("http://newsapi.org/v2/top-headlines/sources?apiKey="+this.NEWS_API_Key)
+    return this.http.get("https://newsapi.org/v2/top-headlines/sources?apiKey="+this.NEWS_API_Key)
   }
   getNewsByKeyword(keyword:any){
-    return this.http.get("http://newsapi.org/v2/everything?q="+keyword+"&from=2026-06-09&sortBy=publishedAt&language=en&apiKey="+this.NEWS_API_Key)
+    return this.http.get("https://api.currentsapi.services/v1/search?keywords="+keyword+"&page_size=20&language=en&page_number=1&page_size=5&apiKey="+this.theCurrent_API_key)
+    // return this.http.get("https://newsapi.org/v2/everything?q="+keyword+"&from=2026-06-09&sortBy=publishedAt&language=en&apiKey="+this.NEWS_API_Key)
   }
   getCurrentWeather(){
     return this.http.get("https://api.openweathermap.org/data/2.5/weather?lat=12.005&lon=79.80&appid="+this.weather_API_key)

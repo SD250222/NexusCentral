@@ -13,11 +13,11 @@
             <label>Weather News</label>
         </div>
         <div class="newsContent" *ngFor="let news of searchResult">
-                <div class="newsImg" *ngIf="news.urlToImage!=null">
-                    <img [src]="news.urlToImage" class="newsImage">
+                <div class="newsImg" *ngIf="news.image!=null">
+                    <img [src]="news.image" class="newsImage" (error)="news.image='https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg'">
                     <div class="newsTitle">{{news.title}}</div>
                 </div>
-                <div class="newsImg" *ngIf="news.urlToImage==null">
+                <div class="newsImg" *ngIf="news.image==null">
                     <img src="https://img.freepik.com/premium-vector/breaking-news-background-style_23-2148525710.jpg"
                         class="image">
                 </div>   
