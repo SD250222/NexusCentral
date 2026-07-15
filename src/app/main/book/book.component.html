@@ -1,0 +1,15 @@
+<div class="col-md-12 fullpage page">   
+    <div class="col-md-12 headerSearchArea">
+        <img src="assets/SS.png" class="headerSearchIcon" width="130px" />&nbsp;&nbsp;
+        <label class="headerSearchText">SpineSeeker</label><br>
+        <!-- <label>(A nice play on finding book spines on a shelf)</label> -->
+    </div>
+    <div class="col-md-12">
+        <input type="text" class="searchText" placeholder="Search for books..." [(ngModel)]="searchText" />&nbsp;&nbsp;
+        <button class="searchButton" (click)="Search()">Search</button>
+    </div>
+</div>
+
+<div class="col-md-12 loadingBlock" *ngIf="showLoading">
+    <img src="assets/loading1.gif" class="loadingImage" width="300px" />
+</div>

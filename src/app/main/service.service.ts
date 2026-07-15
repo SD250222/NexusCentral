@@ -42481,10 +42481,18 @@ export class appService {
   }
 
   getMovieOverallData(name: string):Observable<any>{
-    return this.http.get("https://omdbapi.com/?apikey=4c456083&s=" + name + "&page=1")
+    return this.http.get("https://omdbapi.com/?apikey=4c456083&s=" + name + "&page=3")
   }
 
   getMovieData(name: string,year: string):Observable<any>{
     return this.http.get("https://omdbapi.com/?apikey=4c456083&t=" + name + "&y=" + year + "&plot=full")
   } 
+
+  getBookInfo(bookName: string):Observable<any>{
+    return this.http.get("https://openlibrary.org/search.json?q=" + bookName)
+  }
+
+  getFoodRecipes(foodName: string):Observable<any>{
+    return this.http.get("https://www.themealdb.com/api/json/v1/1/search.php?s=" + foodName);
+  }
 }

@@ -1,0 +1,31 @@
+.fullpage{
+    padding: 10px;
+}
+.headerSearchArea{
+    width: 100%;
+    text-align: center;
+    .headerSearchText{
+        font-size: 100px;
+        font-weight: bold;
+        color: #c10f0f;
+    }
+}
+.searchText{
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    margin-top: 20px;
+    border: 1px solid #c10f0f;
+    border-radius: 15px;
+}
+.searchButton{
+    width: 15%;
+    height: 50px;
+    font-size: 20px;
+    background-color: #c10f0f;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+}

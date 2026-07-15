@@ -6,12 +6,16 @@ import { WeatherReportComponent } from './main/weather-report/weather-report.com
 import { CryptoComponent } from './main/crypto/crypto.component';
 import { SportsComponent } from './main/sports/sports.component';
 import { MovieComponent } from './main/movie/movie.component';
+import { BookComponent } from './main/book/book.component';
+import { RecipesComponent } from './main/recipes/recipes.component';
 const routes: Routes = [
   { path: "homepage", component: HomeComponent },
   { path: "live_weather", component: WeatherReportComponent},
   { path: "crypto", component: CryptoComponent},
   { path: "sports", component: SportsComponent},
   { path: "movies", component: MovieComponent},
+  { path: "books", component: BookComponent},
+  { path: "recipes", component: RecipesComponent},
   
   
   { path: "search/:searchText", component: SearchContentComponent },

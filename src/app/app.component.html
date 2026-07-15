@@ -40,6 +40,14 @@
                 <div class="menuItem" [class.selected]="selectedMenu === 'Crypto'" (click)="navigate('Crypto')">
                     <i class="fa fa-btc" aria-hidden="true"></i><span class="menuLabel"> Crypto</span>
                 </div>
+
+                                
+                <!-- <div class="menuItem" [class.selected]="selectedMenu === 'books'" (click)="navigate('books')">
+                    <i class="fa fa-book" aria-hidden="true"></i><span class="menuLabel"> Book</span>
+                </div>                 -->
+                <div class="menuItem" [class.selected]="selectedMenu === 'Crypto'" (click)="navigate('recipes')">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i><span class="menuLabel"> Recipe</span>
+                </div>
             </div>
         </div>
     </div>

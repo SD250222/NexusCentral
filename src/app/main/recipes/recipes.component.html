@@ -1,0 +1,47 @@
+<div class="col-md-12 fullpage page">   
+    <div class="col-md-12 headerSearchArea">
+        <img src="assets/RG.png" class="headerSearchIcon" width="130px" />&nbsp;&nbsp;
+        <label class="headerSearchText">Recipe Genie</label>
+    </div>
+    <div class="col-md-12">
+        <input type="text" class="searchText" placeholder="Search for recipes..." [(ngModel)]="searchText" />&nbsp;&nbsp;
+        <button class="searchButton" (click)="Search()">Search</button>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <label class="searchResult" *ngIf="recipeList && recipeList.length > 0">Search Results for "{{searchText}}"</label>
+<div class="col-md-12 row recipeBlock" *ngFor="let recipe of recipeList">
+    <div class="col-md-4">
+        <img [src]="recipe.strMealThumb" class="recipeImage" />
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12 row recipeTitle">
+            <h3 [ngStyle]="blockStyle">{{ recipe.strMeal }}</h3>
+        </div>
+        <div class="tags">
+            <div *ngFor="let tag of recipe.strTags?.split(',')">
+                <span class="tag">#{{ tag }}</span>
+            </div>
+
+        </div>
+        
+        <strong class="Ingredients " [ngStyle]="blockStyle">Ingredients:</strong>
+        <div class="col-md-12 row Ingredients">
+                <div class="ingredientList" [ngStyle]="blockStyle" *ngFor="let ingredient of getIngredients(recipe)">
+                    {{ ingredient.name }} - {{ ingredient.measure || '—' }}
+                </div>
+        </div>
+        <p [ngStyle]="blockStyle">
+            <strong class="Ingredients " [ngStyle]="blockStyle">Steps to Follow:</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ recipe.strInstructions | slice:0:600 }}...</p>
+        <div class="links">
+            <a [href]="recipe.strYoutube" target="_blank">Watch on YouTube</a>, <a [href]="recipe.strSource" target="_blank">Chef's Notes</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- <div class="col-md-12 loadingBlock" *ngIf="showLoading">
+    <img src="assets/loading1.gif" class="loadingImage" width="300px" />
+</div> -->

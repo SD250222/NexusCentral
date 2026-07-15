@@ -14,6 +14,8 @@ import { CryptoComponent } from './main/crypto/crypto.component';
 import { ChartModule } from 'angular-highcharts';
 import { SportsComponent } from './main/sports/sports.component';
 import { MovieComponent } from './main/movie/movie.component';
+import { BookComponent } from './main/book/book.component';
+import { RecipesComponent } from './main/recipes/recipes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MovieComponent } from './main/movie/movie.component';
     WeatherReportComponent,
     CryptoComponent,
     SportsComponent,
-    MovieComponent
+    MovieComponent,
+    BookComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
